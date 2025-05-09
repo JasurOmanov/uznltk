@@ -1,0 +1,12 @@
+import os
+
+def stop_sozlar():
+
+    path = os.path.join(os.path.dirname(__file__), 'data', 'stopwords_uz.txt')
+    with open(path, 'r', encoding='utf-8') as f:
+        return f.read().splitlines()
+
+def stopsozlardan_tozalash(str_list):
+
+    stopwords = stop_sozlar()
+    return [t for t in str_list if t not in stopwords]
