@@ -135,7 +135,3 @@ def count(text):
         syll = token.split('-')
         count += len(syll)
     return count
-
-
-matn = "Yashasin ozbekiston"
-print(syllables(matn))

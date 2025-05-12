@@ -12,11 +12,11 @@ def download_folder(folder_name):
     }
 
     try:
-        print(f"⏬ '{folder_name}' papkasi yuklab olinmoqda...")
+        print(f"'{folder_name}' papkasi yuklab olinmoqda...")
         response = requests.get(repo_zip_url, headers=headers)
         response.raise_for_status()
     except requests.RequestException as e:
-        print(f"❌ Yuklab olishda xatolik: {e}")
+        print(f"Yuklab olishda xatolik: {e}")
         return
 
     try:
@@ -36,7 +36,7 @@ def download_folder(folder_name):
                     z.extract(file, extract_to)
 
             if not found:
-                print(f"❌ '{folder_name}' papkasi topilmadi.")
+                print(f"'{folder_name}' papkasi topilmadi.")
                 shutil.rmtree(extract_to)
                 return
 
@@ -48,15 +48,15 @@ def download_folder(folder_name):
                 shutil.rmtree(final_path)
             shutil.move(os.path.join(extract_to, main_dir, folder_name), final_path)
             shutil.rmtree(extract_to)
-            print(f"✅ '{folder_name}' papkasi 'Manba/' ichiga muvaffaqiyatli yuklandi.")
+            print(f"'{folder_name}' papkasi 'Manba/' ichiga muvaffaqiyatli yuklandi.")
 
     except zipfile.BadZipFile:
-        print("❌ ZIP faylni ochishda xatolik.")
+        print("ZIP faylni ochishda xatolik.")
     except Exception as e:
-        print(f"❌ Faylni ajratishda xatolik: {e}")
+        print(f"Faylni ajratishda xatolik: {e}")
 
-def Kitoblar():
+def Book():
     download_folder("Uzb_kitoblar")
 
-def Yangiliklar():
+def News():
     download_folder("Yangiliklar")

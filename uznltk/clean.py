@@ -1,6 +1,6 @@
 import re
 
-def clean(text):
+def clean_text(text):
     apostrophes = ["'", "`", "‘", "’", "´"]
 
     pattern = r"[`'‘’´]"
